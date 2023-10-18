@@ -87,7 +87,7 @@ public class Rechtschreibtrainer {
      * @param wort
      * @param bildURL
      */
-    public void addPaare(String wort, String bildURL) {
+    public void addPaare(String wort, String bildURL) throws IOException {
         WortBildManager neuesWortBildPaar = new WortBildManager(wort, bildURL);
         paare.add(neuesWortBildPaar);
         if(currentPaar == null){

@@ -1,3 +1,8 @@
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
+
 /**
  * Die Klasse WortBildManager speichert ein Wort und ein Bild zu diesem Wort.
  * @author Felix
@@ -12,7 +17,7 @@ public class WortBildManager {
      * @param wort
      * @param bildURL
      */
-    public WortBildManager(String wort, String bildURL){
+    public WortBildManager(String wort, String bildURL) throws IOException {
         setWort(wort);
         setBildURL(bildURL);
     }
@@ -29,7 +34,13 @@ public class WortBildManager {
         return bildURL;
     }
 
-    public void setBildURL(String bildURL) {
-        this.bildURL = bildURL;
+    public void setBildURL(String url) throws IllegalArgumentException, IOException {
+
+        Image image = ImageIO.read(new URL(url));
+        if(image != null){
+            this.bildURL = url;
+        }else{
+            throw new IllegalArgumentException("URL is not an image!");
+        }
     }
 }
