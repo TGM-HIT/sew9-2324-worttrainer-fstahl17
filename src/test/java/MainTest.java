@@ -2,6 +2,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,7 +21,7 @@ public class MainTest {
      * Testet die "addWort"-Methode in Rechtschreibtrainer
      */
     @Test
-    public void testAddWort() {
+    public void testAddWort() throws IOException {
         trainer.addPaare("Mercedes","https://flotte.at/NewsImages-870x580/pic4645_1-die-wertvollsten-automarken-der-welt.jpg");
         assertEquals(1,trainer.getPaare().size());
     }
@@ -29,7 +30,7 @@ public class MainTest {
      * Testet die "speichern"-Methode in JSONSpeichern.java
      */
     @Test
-    public void testSaveJSON() {
+    public void testSaveJSON() throws IOException {
         clear();
         trainer.addPaare("Mercedes","https://flotte.at/NewsImages-870x580/pic4645_1-die-wertvollsten-automarken-der-welt.jpg");
         SaveLoad saveLoad = new SaveJSON();
@@ -45,7 +46,7 @@ public class MainTest {
      * Testet die "laden"-Methode in JSONSpeichern.java
      */
     @Test
-    public void testeLadenJSON(){
+    public void testeLadenJSON() throws IOException {
         clear();
         trainer.addPaare("Mercedes","https://flotte.at/NewsImages-870x580/pic4645_1-die-wertvollsten-automarken-der-welt.jpg");
         trainer.addPaare("Maserati","https://i.pinimg.com/originals/5e/5f/0f/5e5f0f05f9703fa3db0cc93b5d2c8578.png");
